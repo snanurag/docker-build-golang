@@ -11,7 +11,7 @@ build:
         buildargs: "foo=val1 bar=val2"
         labels: "Label1=value1 'Three word key'=value2 Label3='Three word value'"
         extrahosts: "somehost:192.168.0.1 anotherhost:192.168.0.2"
-        nocache: true # ensures RUN steps in Dockerfile are always run
+        nocache: false # ensures RUN steps in Dockerfile are always run
     - internal/docker-push: 
         image-name: my-new-image
         username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME=<username>"  
