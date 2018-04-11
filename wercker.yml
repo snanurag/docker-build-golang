@@ -19,3 +19,14 @@ build:
         registry: https://hub.docker.com
         repository: $USERNAME/docker-build-golang
         tag: latest
+    - internal/docker-run:
+        image: my-new-image
+        name: myTestContainer
+        cmd: "sleep 300"
+    - script:
+        name: test ping
+        code: ping -c 4 myTestContainer
+    - script:
+        name: test http
+        code: curl http://myTestContainer:5000 
+        
