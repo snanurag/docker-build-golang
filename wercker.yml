@@ -3,8 +3,8 @@ build:
   steps:
     # Test  the project
     - script:
-        name: Run tests
-        code: go test ./...     
+        name: max size
+        code: getconf ARG_MAX
     - internal/docker-build: 
         dockerfile: Dockerfile 
         image-name: my-new-image # name used to refer to this image until it's pushed
