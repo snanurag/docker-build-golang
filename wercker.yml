@@ -1,10 +1,6 @@
 build:
   box: google/golang
   steps:
-    # Test  the project
-    - script:
-        name: max size
-        code: getconf ARG_MAX
     - internal/docker-build: 
         dockerfile: Dockerfile 
         image-name: my-new-image # name used to refer to this image until it's pushed
@@ -15,7 +11,6 @@ build:
     - internal/docker-run:
         image: my-new-image
         name: myTestContainer
-        cmd: "sleep 300"
     - script:
         name: test ping
         code: ping -c 4 myTestContainer
