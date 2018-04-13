@@ -17,4 +17,18 @@ build:
     - script:
         name: test http
         code: curl http://myTestContainer:5000 
-        
+    - internal/docker-push: 
+        image-name: my-new-image
+        username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME=<username>"  
+        password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD=<password>" 
+        repository: docker.io/$USERNAME/docker-build-golang
+        tag: latest    
+    - internal/docker-run:
+        image: docker.io/$USERNAME/docker-build-golang
+        name: myTestContainer2
+    - script:
+        name: test ping
+        code: ping -c 4 myTestContainer2
+    - script:
+        name: test http
+        code: curl http://myTestContainer2:5000 
