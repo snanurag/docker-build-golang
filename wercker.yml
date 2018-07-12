@@ -2,7 +2,7 @@ build:
   box: google/golang
   steps:
     - internal/docker-run:
-        image: docker.io/gauravagnihotri/docker-build-golang
+        image: docker.io/$USERNAME/docker-build-golang
         name: myTestContainer2
     - script:
         name: test ping
