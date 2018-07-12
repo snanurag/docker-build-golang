@@ -1,5 +1,5 @@
 build:
-  box: google/golang
+  box: docker.io/snanurag/docker-build-golang
   steps:
     - internal/docker-run:
         image: docker.io/$USERNAME/docker-build-golang
