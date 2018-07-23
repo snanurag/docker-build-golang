@@ -11,5 +11,6 @@ build:
        image-name: sun_spring_boot
        username: $SUN_USERNAME
        password: $SUN_PASSWORD
-       repository: docker.io/hanagln/hanagln_poc/spring_boot
+       registry: https://docker.io
+       repository: spring_boot
        tag: latest
