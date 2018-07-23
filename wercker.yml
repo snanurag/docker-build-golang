@@ -12,5 +12,5 @@ build:
        username: $SUN_USERNAME
        password: $SUN_PASSWORD
        registry: https://docker.io
-       repository: spring_boot
+       repository: snanurag/spring_boot
        tag: latest
