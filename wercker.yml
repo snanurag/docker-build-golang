@@ -1,12 +1,16 @@
+box: google/golang
 build:
-  box: docker.io/snanurag/docker-build-golang
-  steps:
-    - internal/docker-run:
-        image: docker.io/$USERNAME/docker-build-golang
-        name: myTestContainer2
-    - script:
-        name: test ping
-        code: ping -c 4 myTestContainer2
-    - script:
-        name: test http
-        code: curl http://myTestContainer2:5000 
+   steps:
+   - script:
+       name: print hello world
+       code: echo 'hi sun'
+   - internal/docker-build:
+       dockerfile: Dockerfile
+       image-name: sun_spring_boot
+   - internal/docker-push:
+       image-name: sun_spring_boot
+       username: $SUN_USERNAME
+       password: $SUN_PASSWORD
+       registry: https://docker.io
+       repository: hanagln/hanagln_poc/spring_boot
+       tag: latest
